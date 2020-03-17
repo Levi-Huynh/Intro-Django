@@ -8,12 +8,12 @@
 * Go to your repo root directory
 * `pipenv --three`
 * `pipenv install`
-* `pipenv shell`
-* `pipenv install django`
-* `django-admin startproject djorg .`
-* `django-admin startapp notes`
-* `./manage.py runserver`
-* `./manage.py showmigrations`
+* `pipenv shell` #goes into virtual environment 
+* `pipenv install django` #pip install django on this, and did python -m django starproject djorg . #pip is global, #pipenv installs django in virtul #pipenv allows diff version of django in diff projects #may need to uninstall globally
+* `django-admin startproject djorg .` #only thing diff in this folder than the one beej made w/pipenv is mine has asgi.py 
+* `django-admin startapp notes` #app 
+* `./manage.py runserver` #starts sever @ http://127.0.0.1.:8000/ (should run on browser). 
+* `./manage.py showmigrations` #gets into sql #migrations= Glue between DJANGO MODELS & the SQL under them 
 * `./manage.py migrate`
 * `./manage.py runserver`
 * Add model to `notes/models.py`
