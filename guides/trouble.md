@@ -61,7 +61,7 @@ Remove-Item alias:curl
 ```
 
 [Here are some instructions for removing the alias
-permanently](https://superuser.com/questions/883914/how-do-i-permanently-remove-a-default-powershell-alias)
+permanently](https://superuser.com/questions/883914/how-do-i-permanently-remove-a-default-powershell-alias) #put in workplace settings?
 
 ## VS Code not recognizing Django imports properly
 

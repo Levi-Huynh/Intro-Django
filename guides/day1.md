@@ -1,4 +1,5 @@
 # Day 1: Intro
+#django, lots of batteries & functonalities included 
 
 ## Summary
 
@@ -14,28 +15,53 @@
 * `django-admin startapp notes` #app 
 * `./manage.py runserver` #starts sever @ http://127.0.0.1.:8000/ (should run on browser). 
 * `./manage.py showmigrations` #gets into sql #migrations= Glue between DJANGO MODELS & the SQL under them 
-* `./manage.py migrate`
-* `./manage.py runserver`
+ #sql commands to set the django model up. #model are objects w/ bunch of feilds, translating feilds in models to SQL table columns #this created by migration software #admin, auth, contentypes, sessions boilerplate. 
+#./manage.py showmigrations: show which migrations exist and if have been applied 
+#lack of check in checkbox, shows migration not applied 
+#i did `./manage.py sqlmigrate admin 0001_initial` according to beej video 
+
+* `./manage.py migrate` #run this. then check ./manage.py showmigrations, all should be checked 
+* `./manage.py runserver` #no migration not done warning, #auto models created. 
 * Add model to `notes/models.py`
-* Add `'notes'` to `INSTALLED_APPS` in `djorg/settings.py`
-* `./manage.py showmigrations`
-* `./manage.py makemigrations`
+* Add `'notes'` to `INSTALLED_APPS` in `djorg/settings.py` #this exposes notes app to run
+* `./manage.py showmigrations` #no migrations yet for notes
+* `./manage.py makemigrations` #migrates missing notes #inside notes, 0001_initial shows migrations #can run server ./manage.py runserver to check any errors
+#can check sql create:
+#./manage.py sqlmigrate notes 0001_initial 
 * `./manage.py showmigrations`
 * `./manage.py migrate`
-* `./manage.py shell`
+* `./manage.py shell` #python way of accessing DB
+#django aware, auto loads django library to use
   * `from notes.models import Note`
-  * `n = Note(title="example", content="This is a test.")`
+  * `n = Note(title="example", content="This is a test.")` #normally written in py ile 
+  can check by typing:
+  #n
+  #n.id, n.title, n.content
   * `n.save()`
   * `exit()`
 * `./manage.py shell`
   * `from notes.models import Note`
-  * `x = Note.objects.all()`
+  * `x = Note.objects.all()` #orm accesses retries db
+  #method to get data out from DB ^
+  #this returns, query set as array of every diff instance from all Note instances
+  #if set Note.objects.all() to temp var: qs
+  #qs[0].title, shows first title, qs[1].title shows second instance title
   * `x[0]`
   * `x[0].content`
   * `exit()`
 * `pipenv install python-decouple`
 * Add config information to `settings.py` and `.env`
-    
+
+Extra notes
+* Changing model & running migration so easy!
+-If change the model in models.py:
+* update model...
+* `./manage.py makemigrations`   
+* `./manage.py showmigrations`
+* `./manage.py migrate`
+
+
+
 
 ## Setting up a Virtual Environment
   
