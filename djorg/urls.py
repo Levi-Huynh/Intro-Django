@@ -31,8 +31,8 @@ router.register('notes', PersonalNoteViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include(router.urls)),
-  
+    path('api/', include(router.urls)), #takes all endpoints in router
+    re_path(r'^api-token-auth/', views.obtain_auth_token)
 ]
 
 #This will set the path to /api/notes. We can use router.register to add as many paths 
